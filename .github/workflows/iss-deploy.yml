@@ -1,4 +1,4 @@
-name: Deploy static HTML to IIS (simple)
+name: Deploy HTML to IIS
 
 on:
   push:
@@ -7,21 +7,16 @@ on:
 
 jobs:
   deploy:
-    runs-on: [self-hosted]  # use the label you set during config
+    runs-on: [self-hosted]
 
     env:
-      SITE_PATH: "C:\\inetpub\\Vandit"           # IIS site folder that serves your pages
-      CONTENT_DIR: "."                           # "." = repo root (contains index.html, vandit.html)
+      SITE_PATH: "D:\\GitHub\\MyLocalhostWebsite"
 
     steps:
-      - name: Checkout repo
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Ensure site folder exists
-        shell: powershell
-        run: New-Item -ItemType Directory -Force -Path $env:SITE_PATH | Out-Null
-
-      - name: Deploy HTML files
+      - name: Copy only html files
         shell: powershell
         run: |
           Copy-Item -Path "$pwd\*.html" -Destination $env:SITE_PATH -Force

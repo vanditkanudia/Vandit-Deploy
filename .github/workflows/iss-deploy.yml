@@ -18,11 +18,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Ensure site folder exists
-        shell: pwsh
+        shell: powershell
         run: New-Item -ItemType Directory -Force -Path $env:SITE_PATH | Out-Null
 
       - name: Copy files to IIS site (mirror)
-        shell: pwsh
+        shell: powershell
         run: |
           $src = Join-Path $pwd $env:CONTENT_DIR
           robocopy $src $env:SITE_PATH *.* /MIR /NFL /NDL /NP /NJH /NJS | Out-Null

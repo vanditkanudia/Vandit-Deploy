@@ -24,5 +24,4 @@ jobs:
       - name: Copy files to IIS site (mirror)
         shell: powershell
         run: |
-          $src = Join-Path $pwd $env:CONTENT_DIR
-          robocopy $src $env:SITE_PATH *.* /MIR /NFL /NDL /NP /NJH /NJS | Out-Null
+          Copy-Item -Path "$pwd\*" -Destination $env:SITE_PATH -Recurse -Force

@@ -1,0 +1,28 @@
+name: Deploy static HTML to IIS (simple)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  deploy:
+    runs-on: [self-hosted]  # use the label you set during config
+
+    env:
+      SITE_PATH: "C:\\inetpub\\Vandit"           # IIS site folder that serves your pages
+      CONTENT_DIR: "."                           # "." = repo root (contains index.html, vandit.html)
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Ensure site folder exists
+        shell: pwsh
+        run: New-Item -ItemType Directory -Force -Path $env:SITE_PATH | Out-Null
+
+      - name: Copy files to IIS site (mirror)
+        shell: pwsh
+        run: |
+          $src = Join-Path $pwd $env:CONTENT_DIR
+          robocopy $src $env:SITE_PATH *.* /MIR /NFL /NDL /NP /NJH /NJS | Out-Null

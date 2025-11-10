@@ -21,7 +21,7 @@ jobs:
         shell: powershell
         run: New-Item -ItemType Directory -Force -Path $env:SITE_PATH | Out-Null
 
-      - name: Copy files to IIS site (mirror)
+      - name: Deploy HTML files
         shell: powershell
         run: |
-          Copy-Item -Path "$pwd\*" -Destination $env:SITE_PATH -Recurse -Force
+          Copy-Item -Path "$pwd\*.html" -Destination $env:SITE_PATH -Force

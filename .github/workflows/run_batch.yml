@@ -16,4 +16,4 @@ jobs:
 
       - name: Run batch script
         run: .\run_batch.bat
-        shell: pwsh
+        shell: powershell

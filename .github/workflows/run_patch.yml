@@ -1,4 +1,4 @@
-name: Run Patch Script
+name: Run Batch Script
 
 on:
   push:
@@ -13,14 +13,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-
-      - name: Show current directory and files (debug)
-        run: |
-          echo "Current directory:"
-          echo $PWD
-          echo "Files:"
-          dir
-        shell: pwsh
 
       - name: Run patch script
         run: .\run_patch.bat

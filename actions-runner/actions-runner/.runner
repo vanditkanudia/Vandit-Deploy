@@ -1,0 +1,11 @@
+﻿{
+  "agentId": 3,
+  "agentName": "iss runner",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelinesghubeus15.actions.githubusercontent.com/JLFFOxjU3k9a0nrpckizdW86pJOQM5tEMgmJPxk3elNFyABFih/",
+  "gitHubUrl": "https://github.com/vanditkanudia/Vandit-Deploy",
+  "workFolder": "_work",
+  "useV2Flow": true,
+  "serverUrlV2": "https://broker.actions.githubusercontent.com/"
+}

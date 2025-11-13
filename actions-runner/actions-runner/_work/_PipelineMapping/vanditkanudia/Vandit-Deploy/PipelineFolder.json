@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "vanditkanudia/Vandit-Deploy",
+  "pipelineDirectory": "Vandit-Deploy",
+  "workspaceDirectory": "Vandit-Deploy\\Vandit-Deploy",
+  "repositories": {
+    "vanditkanudia/Vandit-Deploy": {
+      "repositoryPath": "Vandit-Deploy\\Vandit-Deploy",
+      "lastRunOn": "11/10/2025 13:09:40 +05:30"
+    }
+  },
+  "lastRunOn": "11/10/2025 17:24:15 +05:30"
+}

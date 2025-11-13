@@ -15,5 +15,5 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run patch script
-        run: scripts\\run_patch.bat
+        run: run_patch.bat
         shell: powershell

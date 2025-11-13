@@ -1,0 +1,19 @@
+name: Run Patch Script
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+  
+
+jobs:
+  run-patch:
+    runs-on: windows-latest   # because we're running a .bat script
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Run patch script
+        run: scripts\\run_patch.bat
+        shell: powershell

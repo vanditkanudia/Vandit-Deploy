@@ -1,0 +1,19 @@
+name: Run Batch Script
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+  
+
+jobs:
+  run-patch:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Run patch script
+        run: .\run_patch.bat
+        shell: pwsh

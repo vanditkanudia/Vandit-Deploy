@@ -8,12 +8,20 @@ on:
 
 jobs:
   run-patch:
-    runs-on: windows-latest   # because we're running a .bat script
+    runs-on: windows-latest
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Show current directory and files (debug)
+        run: |
+          echo "Current directory:"
+          echo $PWD
+          echo "Files:"
+          dir
+        shell: pwsh
+
       - name: Run patch script
-        run: run_patch.bat
-        shell: powershell
+        run: .\run_patch.bat
+        shell: pwsh
